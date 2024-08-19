@@ -1,0 +1,614 @@
+:root {
+  --primary-color: #adf0d4;
+  --secondary-color: #1fd8a4;
+  --bg-color: #0d1512;
+}
+/* Add this to your existing styles.css */
+
+/* Define the keyframe animation for the border color change */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  transition-duration: 200ms;
+  /* font-family: "Caveat", cursive;
+  /* font-optical-sizing: auto; */
+  /* font-weight: 700;
+  font-style: normal;
+  background-color: var(--primary-color);  */
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--primary-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  padding: 14px;
+}
+
+.darkerText {
+  color: var(--secondary-color);
+}
+
+header,
+main,
+footer {
+  max-width: 700px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+p {
+  font-size: 1.05em;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+nav {
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+nav a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+nav a:hover {
+  opacity: 0.7;
+}
+
+/* main,
+section,
+.nameContainer {
+  display: flex;
+  flex-direction: column;
+} */
+
+/* main {
+  gap: 64px;
+  padding-bottom: 64px;
+} */
+
+/* section {
+  gap: 25px;
+} */
+
+section {
+  margin-bottom: 4rem;
+}
+
+.nameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.statsContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+/* Define the keyframe animation for the border color change with 6 colors */
+@keyframes borderAnimation {
+  0% {
+    border-color: #ff0000; /* Red */
+  }
+  16.67% {
+    border-color: #ff7f00; /* Orange */
+  }
+  33.33% {
+    border-color: #ffff00; /* Yellow */
+  }
+  50% {
+    border-color: #00ff00; /* Green */
+  }
+  66.67% {
+    border-color: #0000ff; /* Blue */
+  }
+  83.33% {
+    border-color: #4b0082; /* Indigo */
+  }
+  100% {
+    border-color: #ff0000; /* Red (loop back to start) */
+  }
+}
+
+/* Style for the imgContainer to apply the border effect */
+.imgContainer {
+  position: relative;
+  border-radius: 100%;
+  width: 22%;
+  overflow: hidden;
+}
+.aboutMe {
+  width: 70%;
+  line-height: 1.5em;
+}
+
+.imgContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 6px solid; /* Adjust thickness as needed */
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: borderAnimation 3s linear infinite; /* Adjust duration as needed */
+  z-index: 1;
+}
+
+.imgContainer img {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+/* Define the keyframe animation for the gradient border effect */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+/* Ensure the h1 is relatively positioned to contain the absolute positioned ::after pseudo-element */
+.nameContainer p {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px; /* Adjust for spacing with the border */
+  margin-bottom: 16px; /* Adjust spacing between text and bottom border */
+}
+
+/* Add a gradient bottom border to the h1 element */
+.nameContainer p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px; /* Adjust thickness as needed */
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7f00,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #4b0082
+  );
+  background-size: 600% 100%; /* Increase the size to animate the gradient */
+  animation: gradientAnimation 6s linear infinite; /* Adjust duration as needed */
+  z-index: -1; /* Ensure the border appears below the text */
+}
+.skilled {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+.skilled span {
+  font-size: 2.4rem;
+  font-weight: bold;
+  font-family: "Caveat", cursive;
+  /* font-optical-sizing: auto; */
+  font-weight: 700;
+  font-style: normal;
+  padding: 4px;
+}
+.skilled h1 {
+  font-family: "Caveat", cursive;
+  /* font-optical-sizing: auto; */
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+}
+
+.auto-type {
+  font-size: 24px; /* Adjust size as needed */
+  font-weight: bold; /* Optional: make text bold */
+  color: transparent; /* Text color should be transparent to see the shadow */
+  background: linear-gradient(
+    45deg,
+    #ff5733,
+    #ffbd33,
+    #33ff57,
+    #3357ff
+  ); /* 4-color gradient */
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-fill-color: transparent;
+
+  /* Gradient shadow effect */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2),
+    /* Shadow for better readability */ 0 0 5px rgba(255, 88, 51, 0.418),
+    0 0 10px rgba(255, 190, 51, 0.432), 0 0 15px rgba(51, 255, 88, 0.425),
+    0 0 20px rgba(51, 88, 255, 0.479);
+}
+.innerES {
+  display: flex;
+  justify-content: space-evenly;
+}
+.experience {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.centerToSkills {
+  margin-top: 2rem;
+}
+.skills {
+  width: 50%;
+}
+.startDate {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.startEndDate {
+  font-size: 12px;
+}
+.skillsInnerdiv {
+  margin-top: 12px;
+}
+.skillsInnerdiv {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-evenly; */
+}
+.skillsInnerdiv span {
+  border-radius: 5px;
+  background-color: #39ff14;
+  color: var(--bg-color);
+  padding: 6px;
+  margin: 5px;
+  font-weight: 600;
+  display: inline-block;
+  transition: box-shadow 0.3s ease-in;
+}
+
+.skillsInnerdiv span:hover {
+  cursor: pointer;
+  box-shadow: 0 0 20px 5px rgba(57, 255, 20, 0.8);
+}
+@keyframes gradientBorder {
+  0% {
+    border-image-source: linear-gradient(
+      90deg,
+      #ff0066,
+      #ffcc00,
+      #00ff99,
+      #66ccff,
+      #cc66ff,
+      #ff6666
+    );
+  }
+  100% {
+    border-image-source: linear-gradient(
+      90deg,
+      #ff6666,
+      #cc66ff,
+      #66ccff,
+      #00ff99,
+      #ffcc00,
+      #ff0066
+    );
+  }
+}
+.experienceSkills h2,
+.projectContainer h2 {
+  width: fit-content;
+}
+.experienceSkills h2,
+.projectContainer h2 {
+  border-bottom: 5px solid transparent; /* Set the border-bottom */
+  border-image: linear-gradient(
+    90deg,
+    #ff0066,
+    #ffcc00,
+    #00ff99,
+    #66ccff,
+    #cc66ff,
+    #ff6666
+  ); /* Default border gradient */
+  border-image-slice: 1;
+  animation: gradientBorder 2s linear infinite; /* Apply animation */
+}
+.projectContainer h2 {
+  border-bottom: 5px solid transparent; /* Set the border-bottom */
+  border-image: linear-gradient(
+    90deg,
+    #ff0066,
+    #ffcc00,
+    #00ff99,
+    #66ccff,
+    #cc66ff,
+    #ff6666
+  ); /* Default border gradient */
+  border-image-slice: 1;
+  animation: gradientBorder 2s linear infinite; /* Apply animation */
+}
+
+/* .stats {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+} */
+
+/* .stats > div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stats div i {
+  font-size: 1.4em;
+}
+
+.stats div div {
+  display: grid;
+  place-items: center;
+  min-width: 40px;
+} */
+
+.outreach {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  width: fit-content;
+  margin-right: auto;
+}
+
+.outreach:hover {
+  opacity: 0.7;
+}
+
+.outreach i {
+  transform: rotate(-45deg);
+}
+
+.projectContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.projectItem {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+}
+
+.projectItem div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.projectItem > div:last-child {
+  aspect-ratio: 16/9;
+  max-width: 30%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.projectItem > div:last-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.linkContainer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.linkItem {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 14px !important;
+  color: var(--primary-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.linkItem:hover {
+  opacity: 0.7;
+}
+
+.linkItem p {
+  font-size: 0.9em;
+}
+.gitRepo,
+.llh {
+  color: white;
+}
+.llh {
+  text-decoration: none;
+}
+header h2 {
+  font-family: "Caveat", cursive;
+  /* font-optical-sizing: auto; */
+  font-weight: 700;
+  font-style: normal;
+  /* background-color: var(--primary-color); */
+}
+.punchLine {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 708px) {
+  .experience p {
+    font-size: 15px;
+  }
+  .centerToSkills {
+    margin-top: 1rem;
+  }
+  .skillsInnerdiv span {
+    padding: 4px;
+    margin: 4px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+}
+@media (max-width: 600px) {
+  .centerToSkills {
+    margin-top: 0;
+  }
+  .linkContainer2 {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 560px) {
+  .statsContainer {
+    flex-direction: column;
+    /* align-items: flex-start; */
+  }
+  .imgContainer {
+    width: 34%;
+  }
+  .aboutMe {
+    width: 100%;
+    font-weight: 500;
+  }
+  .innerES {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .experience,
+  .skills {
+    width: 100%;
+  }
+  .skillsInnerdiv span {
+    padding: 5px;
+    margin: 5px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .centerToSkills p {
+    font-size: 1rem;
+  }
+  .skillsInnerdiv span {
+    font-family: "Caveat", cursive;
+    /* font-optical-sizing: auto; */
+    font-weight: 700;
+    font-style: normal;
+    background-color: var(--primary-color);
+  }
+}
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.4rem;
+  }
+  .skilled {
+    gap: 10px;
+  }
+  .skilled span {
+    font-size: 2rem;
+  }
+
+  header {
+    gap: 0.4rem;
+  }
+
+  nav {
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+  header h2 {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 425px) {
+  .skilled {
+    gap: 10px;
+  }
+  .skilled h1 {
+    font-size: 1.6rem;
+  }
+  .skilled span {
+    font-size: 1.8rem;
+  }
+  .textProject {
+    font-size: 14px;
+  }
+  .linkContainer2 {
+    gap: 0px;
+  }
+}
+
+@media (max-width: 415px) {
+  .statsContainer {
+    flex-direction: column;
+    /* align-items: flex-start; */
+  }
+  .imgContainer {
+    width: 40%;
+  }
+  .linkContainer {
+    gap: 14px;
+  }
+}
+/* @media (max-width: 640px) {
+  .statsContainer {
+    flex-direction: row;
+  }
+
+  .stats {
+    gap: 0px;
+  }
+
+  .aboutMe {
+    width: 80%;
+    margin-right: auto;
+  }
+} */
+@media (max-width: 375px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+  .skilled {
+    gap: 8px;
+  }
+  .skilled h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .skilled span {
+    font-size: 1.8rem;
+  }
+}
